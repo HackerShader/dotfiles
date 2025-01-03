@@ -1,0 +1,102 @@
+{
+    // General Waybar configuration
+    "layer": "top",
+    "height": 0,
+    "margin": 0,
+    "spacing": 5,
+    "border-size": 0,
+    "padding": 0,
+    // Modules configuration
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/window",
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "image#ethernetart",
+        "mpris",
+        "battery",
+        "cpu",
+        "temperature",
+        "clock"
+    ],
+    // Module-specific configurations
+    "clock": {
+        "format": "{:%H:%M %p}",
+        "tooltip-format": "{:%A, %B %d, %Y}"
+    },
+    "custom/date": {
+        // put you user here
+        "exec": "/home/username/.config/waybar/scripts/date/custom_date.sh",
+        "interval": 60,
+        "tooltip": false
+    },
+    "hyprland/window": {
+        "format": "{class}",
+        "max-length": 20,
+        "rewrite": {
+            "^(?!.*\\S).*": "Paithon",
+            "org.gnome.Nautilus": "Nautilus",
+            "org.gnome.FileRoller": "Archiver"
+        }
+    },
+
+    "custom/launcher": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "pkill wofi; wofi -n"
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{windows}",
+        "format-window-separator": " | ",
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "class<Google-chrome>": "Chrome",
+            "class<jetbrains-webstorm>": "Webstorm",
+            "class<kitty> title<nvim .*>": "NeoVim",
+            "class<kitty>": "Terminal",
+            "class<kitty> title<cava>": "AudioVisualizer",
+            "class<vesktop>": "Discord",
+            "class<org.gnome.Nautilus>": "Files",
+            "class<Google-chrome> title<GeForce NOW - .*>": "GeForceNow",
+            "class<com.github.xournalpp.xournalpp>": "WhiteBoard",
+        }
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "temperature": {
+        "thermal-zone": 1,
+        "format": "  {temperatureC}°C",
+        "critical-threshold": 70,
+        "format-critical": "  {temperatureC}°C",
+    },
+
+    "cpu": {
+        "interval": 20,
+        "format": "   {usage}%",
+        "max-length": 10,
+    },
+    "mpris": {
+        "max-length": 30,
+        "artist-len": 10,
+        "title-len": 19,
+        "format": "{artist} - {title} ♫",
+        "format-paused": "Paused ♫",
+        "tooltip-format": "{artist} - {title} [{position}/{length}]",
+        "interval": 1,
+    }
+}
