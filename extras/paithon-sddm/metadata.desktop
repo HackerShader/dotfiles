@@ -1,0 +1,15 @@
+[SddmGreeterTheme]
+Name=paithon-sddm
+Description=paithon-sddm
+Author=Paithon
+Website=
+License=GPL-3.0-or-later
+Type=sddm-theme
+Version=1.0
+ConfigFile=Themes/theme1.conf
+Screenshot=Previews/preview1.png
+MainScript=Main.qml
+TranslationsDirectory=translations
+Theme-Id=paithon-sddm
+Theme-API=2.0
+QtVersion=6
